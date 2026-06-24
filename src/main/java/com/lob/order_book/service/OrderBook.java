@@ -65,7 +65,7 @@ public class OrderBook {
         return trades;
     }
 
-    private Boolean cancelOrder(String id) {
+    public Boolean cancelOrder(String id) {
         if (!ordersId.containsKey(id) || ordersId.get(id).getStatus() == OrderStatus.FILLED) {
             return false;
         } else {
