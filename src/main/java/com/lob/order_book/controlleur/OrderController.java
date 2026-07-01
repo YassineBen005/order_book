@@ -1,9 +1,6 @@
 package com.lob.order_book.controlleur;
 
-import com.lob.order_book.model.Order;
-import com.lob.order_book.model.OrderSide;
-import com.lob.order_book.model.OrderStatus;
-import com.lob.order_book.model.Trade;
+import com.lob.order_book.model.*;
 import com.lob.order_book.service.OrderBook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +19,8 @@ public class OrderController {
         return ResponseEntity.ok(trades);
     }
     @GetMapping
-    public ResponseEntity<OrderBook> getOrders(){
-        return ResponseEntity.ok(orderBook);
+    public ResponseEntity<BookSnapshot> getOrders(){
+        return ResponseEntity.ok(new BookSnapshot(orderBook.getBids(), orderBook.getAsks()));
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> deleteOrder(@PathVariable String id){

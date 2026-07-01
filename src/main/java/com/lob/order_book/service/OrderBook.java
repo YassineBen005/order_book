@@ -4,18 +4,25 @@ import com.lob.order_book.model.Order;
 import com.lob.order_book.model.OrderSide;
 import com.lob.order_book.model.OrderStatus;
 import com.lob.order_book.model.Trade;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
+
 @Component
 public class OrderBook {
     private final PriorityBlockingQueue<Order> bids = new PriorityBlockingQueue<>(100, Comparator.comparingDouble(Order::getPrice).reversed());
     private final PriorityBlockingQueue<Order> asks = new PriorityBlockingQueue<>(100, Comparator.comparingDouble(Order::getPrice));
     private final ConcurrentHashMap<String, Order> ordersId = new ConcurrentHashMap<>();
-
+    public List<Order> getBids() {
+        return new ArrayList<>(bids);
+    }
+    public List<Order> getAsks() {
+        return new ArrayList<>(asks);
+    }
     public List<Trade> addOrder(Order order) {
         order.setId(UUID.randomUUID().toString());
         order.setRemainingQuantity(order.getQuantity());
