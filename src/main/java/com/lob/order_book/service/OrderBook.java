@@ -144,4 +144,15 @@ public class OrderBook {
         entity.setTradeTime(trade.getTradeTime());
         return entity;
     }
+
+    //get the market spread
+    public double getSpread(){
+        if (!bids.isEmpty() && !asks.isEmpty()){
+            Order bestBid=bids.peek();
+            Order bestAsk=asks.peek();
+            return bestAsk.getPrice()-bestBid.getPrice();
+        }else{
+            throw new IllegalStateException("Order book is empty, no spread available");
+        }
+    }
 }

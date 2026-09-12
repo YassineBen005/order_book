@@ -17,5 +17,16 @@ public class AnalyticsController {
     public ResponseEntity<List<Object[]>> getVolume(){
         return ResponseEntity.ok(analyticsService.getVolumePerHour());
     }
-
+    @GetMapping("/avg-price")
+    public ResponseEntity<List<Object[]>> getAvgPrice(){
+        return ResponseEntity.ok(analyticsService.getAvgPricePerHour());
+    }
+    @GetMapping("/market-depth")
+    public ResponseEntity<List<Object[]>> getMarketDepth(){
+        return ResponseEntity.ok(analyticsService.getMarketDepth());
+    }
+    @GetMapping("/spread")
+    public ResponseEntity<Double> getSpread(){
+        return ResponseEntity.ok(analyticsService.getSpread());
+    }
 }
