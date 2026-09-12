@@ -11,13 +11,14 @@ import com.lob.order_book.repository.TradeRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
 
-@Component
+@Service
 public class OrderBook {
     @Autowired
     OrderRepository orderRepository;
