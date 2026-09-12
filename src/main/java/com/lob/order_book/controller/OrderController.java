@@ -1,4 +1,4 @@
-package com.lob.order_book.controlleur;
+package com.lob.order_book.controller;
 
 import com.lob.order_book.model.*;
 import com.lob.order_book.service.OrderBook;

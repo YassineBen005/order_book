@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 
 @Data
 public class Trade {
-    private String buyOrderId;
-    private String sellOrderId;
+    private String buyOrderId; /*Order BUY id*/
+    private String sellOrderId;/*Order SELL id*/
     private LocalDateTime tradeTime;
     private double price;
     private int quantity;

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
+/*Pour simplifier le corps de la requête Get*/
 @Data
 @AllArgsConstructor
 public class BookSnapshot {

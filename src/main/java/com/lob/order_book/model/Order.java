@@ -8,9 +8,8 @@ public class Order {
     private String id;
     private int quantity;
     private double price;
-    private OrderSide side;
+    private OrderSide side;/*BUY or SELL*/
     private OrderStatus status;
     private LocalDateTime creationTime;
     private int remainingQuantity;
-
 }
